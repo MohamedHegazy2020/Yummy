@@ -11,6 +11,7 @@ home.getAPI();
 $("#categories").click(function () {
   let category = new Categories();
   Loading();
+  $("#mealDetails").addClass("d-none");
 
   category.getAPI();
   Loading();
@@ -18,28 +19,42 @@ $("#categories").click(function () {
 $("#area").click(function () {
   let area = new Area();
   Loading();
+  $("#mealDetails").addClass("d-none");
+  $("#allMeals").removeClass("d-none");
+  $("#contact").addClass("d-none");
 
   area.getAPI();
+
   Loading();
 });
 $("#ingredients").click(function () {
   let ingredient = new Ingredients();
   Loading();
+  $("#mealDetails").addClass("d-none");
+  $("#allMeals").removeClass("d-none");
+  $("#contact").addClass("d-none");
 
   ingredient.getAPI();
   Loading();
 });
+
 $("#search").click(function () {
   let search = new Search();
   Loading();
+  $("#mealDetails").addClass("d-none");
+  $("#allMeals").removeClass("d-none");
+  $("#contact").addClass("d-none");
 
   search.displaySearchInput();
   Loading();
 });
-$("#contact").click(function () {
-  let contact = new Contact();
+$("#contactt").click(function () {
   Loading();
+  $("#mealDetails").addClass("d-none");
+  $("#allMeals").addClass("d-none");
+  $("#contact").removeClass("d-none");
 
+  let contact = new Contact();
   contact.check();
   Loading();
 });
@@ -47,7 +62,7 @@ $("#contact").click(function () {
 // default side bar position
 
 $(".side-nav-menu").css({ left: -$(".nav-tab").innerWidth() });
-$(".links li#contact").css({ top: $(".nav-tab").outerHeight() });
+$(".links li#contactt").css({ top: $(".nav-tab").outerHeight() });
 $(".links li#ingredients").css({ top: $(".nav-tab").outerHeight() });
 $(".links li#area").css({ top: $(".nav-tab").outerHeight() });
 $(".links li#categories").css({ top: $(".nav-tab").outerHeight() });
@@ -57,7 +72,7 @@ $(".links li#search").css({ top: $(".nav-tab").outerHeight() });
 $(".close").click(function () {
   if ($(".side-nav-menu").css("left") == "0px") {
     $(".close").removeClass("fa-xmark").addClass(" fa-bars");
-    $(".links li#contact").animate({ top: $(".nav-tab").outerHeight() }, 1000);
+    $(".links li#contactt").animate({ top: $(".nav-tab").outerHeight() }, 1000);
     $(".links li#ingredients").animate(
       { top: $(".nav-tab").outerHeight() },
       1050
@@ -76,7 +91,7 @@ $(".close").click(function () {
     $(".links li#categories").animate({ top: 0 }, 1150);
     $(".links li#area").animate({ top: 0 }, 1200);
     $(".links li#ingredients").animate({ top: 0 }, 1250);
-    $(".links li#contact").animate({ top: 0 }, 1300);
+    $(".links li#contactt").animate({ top: 0 }, 1300);
   }
 });
 
@@ -86,12 +101,5 @@ function Loading() {
   $("body").removeClass("overflow-hidden");
 }
 
-
-
-
-
-
-
-
-// 
-// contact 
+//
+// contact

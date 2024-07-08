@@ -114,6 +114,3 @@ function Loading() {
 
   $("body").removeClass("overflow-hidden");
 }
-
-//
-// contact

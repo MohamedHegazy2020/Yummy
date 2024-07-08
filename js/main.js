@@ -12,7 +12,7 @@ $("#categories").click(function () {
   let category = new Categories();
   Loading();
   $("#mealDetails").addClass("d-none");
-
+  sideBarAnimation();
   category.getAPI();
   Loading();
 });
@@ -33,6 +33,7 @@ $("#ingredients").click(function () {
   $("#mealDetails").addClass("d-none");
   $("#allMeals").removeClass("d-none");
   $("#contact").addClass("d-none");
+  sideBarAnimation();
 
   ingredient.getAPI();
   Loading();
@@ -44,6 +45,7 @@ $("#search").click(function () {
   $("#mealDetails").addClass("d-none");
   $("#allMeals").removeClass("d-none");
   $("#contact").addClass("d-none");
+  sideBarAnimation();
 
   search.displaySearchInput();
   Loading();
@@ -53,6 +55,7 @@ $("#contactt").click(function () {
   $("#mealDetails").addClass("d-none");
   $("#allMeals").addClass("d-none");
   $("#contact").removeClass("d-none");
+  sideBarAnimation();
 
   let contact = new Contact();
   contact.check();
@@ -69,7 +72,8 @@ $(".links li#categories").css({ top: $(".nav-tab").outerHeight() });
 $(".links li#search").css({ top: $(".nav-tab").outerHeight() });
 
 // side bar animation
-$(".close").click(function () {
+
+const sideBarAnimation = function () {
   if ($(".side-nav-menu").css("left") == "0px") {
     $(".close").removeClass("fa-xmark").addClass(" fa-bars");
     $(".links li#contactt").animate({ top: $(".nav-tab").outerHeight() }, 1000);
@@ -93,7 +97,9 @@ $(".close").click(function () {
     $(".links li#ingredients").animate({ top: 0 }, 1250);
     $(".links li#contactt").animate({ top: 0 }, 1300);
   }
-});
+};
+
+$(".close").click(sideBarAnimation);
 
 function Loading() {
   $(".loading").toggleClass("d-none");

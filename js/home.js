@@ -1,20 +1,19 @@
 import { Details } from "./details.js";
 
 export class Home extends Details {
-  constructor() {
+  constructor(apilink) {
     super();
+    this.apilink =
+      apilink || `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
   }
 
   async getAPI() {
-
-    $.getJSON(`https://www.themealdb.com/api/json/v1/1/search.php?s=`, (data) => {
+    $.getJSON(this.apilink, (data) => {
       // console.log(data);
       data.meals.map((meal) => {
         this.diplayMeals(meal);
       });
     });
-
-
   }
 
   diplayMeals(param) {
@@ -26,13 +25,12 @@ export class Home extends Details {
                     </div>
                 </div>
         </div>`;
-       
-        $(".cardDashboard").append(mealCard);
-        $(`#${param.idMeal}`).click( function() {
-          const detail = new Details($(this).attr("id"));
-          detail.getAPI();
-        });
-        // console.log($(".cardDashboard"));
+
+    $(".cardDashboard").append(mealCard);
+    $(`#${param.idMeal}`).click(function () {
+      const detail = new Details($(this).attr("id"));
+      detail.getAPI();
+    });
+    // console.log($(".cardDashboard"));
   }
-  
 }

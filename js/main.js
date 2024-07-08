@@ -12,6 +12,7 @@ $("#categories").click(function () {
   let category = new Categories();
   Loading();
   $("#mealDetails").addClass("d-none");
+  $("#searchContainer").addClass("d-none");
   sideBarAnimation();
   category.getAPI();
   Loading();
@@ -19,9 +20,12 @@ $("#categories").click(function () {
 $("#area").click(function () {
   let area = new Area();
   Loading();
+  $("#searchContainer").addClass("d-none");
+
   $("#mealDetails").addClass("d-none");
   $("#allMeals").removeClass("d-none");
   $("#contact").addClass("d-none");
+  sideBarAnimation();
 
   area.getAPI();
 
@@ -30,6 +34,8 @@ $("#area").click(function () {
 $("#ingredients").click(function () {
   let ingredient = new Ingredients();
   Loading();
+  $("#searchContainer").addClass("d-none");
+
   $("#mealDetails").addClass("d-none");
   $("#allMeals").removeClass("d-none");
   $("#contact").addClass("d-none");
@@ -52,6 +58,8 @@ $("#search").click(function () {
 });
 $("#contactt").click(function () {
   Loading();
+  $("#searchContainer").addClass("d-none");
+
   $("#mealDetails").addClass("d-none");
   $("#allMeals").addClass("d-none");
   $("#contact").removeClass("d-none");
